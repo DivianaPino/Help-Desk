@@ -1,0 +1,373 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/**------------VARIABLES--------------------------------  */
+:root{
+    --azul:#2245d0;
+    --blanco:#fff;
+    --azulclaro:#2980B9;
+    --oscuro:#000;
+    --titulos:'Arima Madurai', cursive;
+    --parrafos:'Mulish', sans-serif;
+  }
+  /**----------FIN - VARIABLES----------------------------- */
+  
+  
+  html{
+  
+    box-sizing: border-box;
+    /* resetear el tama#o de la letra por defecto del navegador */
+    /* de 16px ahora mide 10px, ya que 1rem por defecto son 16px
+    por lo tanto ahora 1rem = 10 px  */
+    font-size: 62.5%;
+  }
+  
+  body{
+    /* 1.6rem = 36px */
+    font-size: 1.6rem;
+    /* ocultar la barra de desplazamiento en el eje X  */
+    overflow-x: hidden;
+  
+  }
+  
+  *,*::after, *::before{
+    box-sizing: inherit;
+  }
+  
+  /**--------- ENCABEZADO------------*/
+  
+  .fondo-encabezado{
+    background-color: rgba(255, 255, 255, 0.679);
+    box-shadow: 0 3px 5px -2px rgb(160, 158, 158);
+  }
+  
+  .encabezado{
+    display: flex;
+    justify-content: space-between;    
+  }
+  
+  .fondo-header{
+    background-color:#D4E6F1;
+  }
+  
+  .contenedor{
+    max-width: 120rem;
+    /* centrar */
+    margin: 0 auto;
+    width: 95%;
+  }
+  
+  .logo-header .logo img{
+    width: 50px;
+    height: 50px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .txt-btn{
+    background-color: var(--azul);
+    border: none; 
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-family: var(--parrafos);
+  }
+  
+  .txt-btn:hover{
+    background-color: var(--azulclaro);
+    cursor: pointer;
+  }
+  
+  .btn{
+    text-decoration: none;
+    color: var(--blanco);
+    font-size:  1.5rem;
+    /* capitalize: la primera letra de cada palabra sea mayusculas */
+    text-transform: capitalize;
+    padding: 1rem 2.5rem; 
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+    margin-top: 1rem;
+    margin-right: 1rem;
+  
+  }
+  
+  
+  
+  /* Desde tablet hacia arriba */
+  @media(min-width: 768px){
+    .solicitar{
+        align-items: left;
+    }
+  }
+  
+  .contenedor-nosotros{
+    padding-top: 3rem;
+  }
+  
+  /* solo se coloque las imagenes una al de la otra y con espacio
+  cuando este en modo tablet hacia adelante */
+  /* Es decir que modo movil se quede normal (los elementos se coloquen hacia abajo)
+  como viene por defecto */
+  
+  @media(min-width: 768px){
+    .contenedor-nosotros{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 3rem;
+    }
+  
+  }
+  
+  .texto-nosotros, .imagenes-nosotros{
+    /* Calculamos el 50% del elemento (cada elemento le asignamos el 50%) */
+    /* restamos 1rem para que haya espacio (1rem = 10px) entre los elementos */
+    flex: 0 0 calc(50% - 1rem)
+  }
+  
+  .texto-nosotros h1{
+    color: var(--azul);
+    font-weight:700;
+    font-size: 5rem;
+    text-align: center;
+  }  
+  
+  /* Desde tablet hacia arriba */
+  @media(min-width: 768px){
+    .texto-nosotros h1{
+        text-align: left;
+    }
+  }
+  
+  .texto-nosotros p{
+     font-size: 2rem;
+     color: var(--oscuro);
+     text-align: center;
+  }
+  
+  
+  /* Desde tablet hacia arriba */
+  @media(min-width: 768px){
+    .texto-nosotros .bienvenida, .texto-nosotros p {
+        text-align: left;
+    }
+  }
+  
+  .solicitar{
+  margin-top: 2rem;
+  }
+  
+  /* Desde tablet hacia arriba */
+  .imagen1{
+    flex: 0 0 calc(50% - 1rem); 
+  }
+  
+  img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 350px;
+    margin-top: 2rem;
+   
+  }
+  
+  @media(min-width:768px){
+    img{
+        width: 650px;
+        height: 400px;
+        
+    }
+  }
+  
+  /**------ FIN ENCABEZADO----- */
+  
+  /**------ CONTENIDO----------- */
+  
+  .contenido{
+    background-color: var(--blanco);
+    margin-top: 1rem;
+  }
+  
+  @media(min-width:768px){
+    .contenido{
+        display: flex;
+        justify-content: space-between;
+    }
+  }
+  
+  .contenido-1{
+    /* Calculamos el 50% del elemento (cada elemento le asignamos el 50%) */
+    /* restamos 1rem para que haya espacio (1rem = 10px) entre los elementos */
+    flex: 0 0 calc(25% - 1rem);
+    border: 1px solid #e1e1e1;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 1rem;
+    text-align: center;
+  }
+  
+  .icono{
+    display: flex;
+    justify-content: center;
+    background-color: #2245d0;
+    border: 1px solid #e1e1e1;
+    border-radius: 50%;
+    color: #D4E6F1;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    font-size: 3rem;
+    
+  }
+  
+  .icono i{
+    align-self: center;
+  }
+  
+  .contenido-1 h3{
+     font-weight: bold;
+     text-align: center;
+     font-size: 2rem;
+  }
+  
+  .text-contenido{
+    font-size: 1.7rem;
+    margin-top: 1rem;
+  }
+  
+  /**------ FIN CONTENIDO------ */
+  
+  /**------ FOOTER------- */
+  
+  .footer{
+    text-align: center;
+    background-color: rgb(209, 209, 209);
+    color: var(--oscuro);
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  
+  /**------ FIN FOOTER------- */
+  
+  /** FORMULARIO LOGIN -REGISTRO */
+  
+  .fondo{
+     background-image: linear-gradient(
+       to bottom right,
+       #d8ddf0 0%,
+       #c2c9e9 20%,
+       #ccd3ee 40%,
+       #6d85e6 60%,
+       #728cf2 80%
+     );
+  
+     background-size: 200% 200%;
+  
+     animation: movimiento 5s linear infinite alternate;
+  
+  }
+  
+  
+  @keyframes movimiento{
+    from{
+      background-position: 0 0;
+    }
+    to{
+      background-position: 100% 100%;
+    }
+  }
+  
+  .contenedor-form{
+  width: 350px;
+  height: 460px;
+  background-color:#2245d0 ;
+  padding: 20px;
+  border-radius: 20px;
+  }
+  
+  .img-formulario{
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  }
+  
+  .text-login{
+  color: #d1d5db;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  }
+  
+  .texto-formulario{
+  color: #d1d5db;
+  font-size: 1.8rem;
+  font-weight: 300; 
+  margin-bottom: 0.8rem;
+  }
+  
+  .contenedor-remember{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  }
+  
+  .texto-recuerdame, .texto-noregister{
+  font-size: 1.2rem;
+  color: #b6c7e1;
+  margin-left: 0.3rem;
+  }
+  
+  .contenedor-btnform{
+  display: flex;
+  justify-content: center;
+  }
+  
+  .btn-form{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #07183d;
+  color: #d8e0ed;
+  font-weight:bold;
+  margin-top: 45px;
+  padding: 15px;
+  font-size: 1.8rem;
+  }
+  
+  .btn-form:hover{
+    background-color: #658fe9 !important;
+    border: none;
+  }
+  
+  /* FORM REGISTRO */
+  
+  .estarRegistrado{
+    font-size: 1.5rem;
+    display: block;
+    color: #b3b1b1;
+    float: right;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  .btn-registrarse{
+     margin-top: 40px;
+  }
+
+
+  .logo-Profile{
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .img-profileUser{
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    margin: 0;
+  }

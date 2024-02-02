@@ -1,0 +1,91 @@
+@extends('adminlte::page')
+
+@section('title', 'Gestión de usuarios')
+
+@section('content_header')
+    <h1>Gestión de usuarios</h1>
+@stop
+
+@section('content')
+<div>
+     <div class="card">
+        <div class="card-body">
+            <table id="tabla_usuarios" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
+               <thead class="text-center bg-dark text-white">
+                   <tr>
+                      <th>ID</th>
+                      <th>Nombre</th>
+                      <th>Email</th>
+                      <th>Rol(es)</th>
+                      <th>Opciones</th>
+                   </tr>
+               </thead>
+
+               <tbody>
+                 
+               @foreach ($usuarios as $usuario )
+   
+                          <tr>
+                             <td>{{$usuario->id}}</td>
+                             <td>{{$usuario->name}}</td>
+                             <td>{{$usuario->email}}</td>
+                             <td>{{$usuario->roles()->pluck('name')->implode(', ')}}</td>
+                             <td >
+                                 <a class="btn btn-info" href="{{route('usuarios.edit', $usuario)}}">Editar Rol</a>
+                             </td> 
+                         </tr>
+
+    
+
+                  @endforeach
+
+               </tbody>
+            </table>
+        </div>
+     </div>
+</div>
+
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+@stop
+
+@section('js')
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#tabla_usuarios').DataTable({
+      //Opciones de paginación
+        "lengthMenu": [
+            [5, 10, 50, -1],
+            [5, 10, 50, "All"]
+        ],
+        "language":{
+            "info": "_TOTAL_ registros", 
+            "search":"Buscar",
+            "paginate": {
+                "next": "Siguiente",
+                "previous":"Anterior",
+            },
+            "lengthMenu":'Mostrar <select>'+
+                        '<option value="10">10</option>'+
+                        '<option value="30">30</option>'+
+                        '<option value="50">50</option>'+
+                        '<option value="-1">Todos</option>'+
+                        '</select> registros',
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "emptyTable": "No hay datos",
+            "zeroRecords":"No hay coincidencias",
+            "infoEmpty": "",
+            "infoFiltered":"",
+        }
+    });
+});
+</script>
+@stop
