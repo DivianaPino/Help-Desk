@@ -17,11 +17,11 @@ class DashboardController extends Controller
         if(Auth::check()){
             if(Auth::user()->hasRole('Administrador')){
                 $tickets=Ticket::all();
-                return view('myViews.tickets.index')->with('tickets', $tickets);
+                return view('myViews.Admin.tickets.index')->with('tickets', $tickets);
                 // dd('administrador');
             }else{
                  $tickets=Ticket::where('user_id', auth()->user()->id)->get();
-                 return view('myViews.consulta_tickets.index')->with('tickets', $tickets);
+                 return view('myViews.usuarioEst.index')->with('tickets', $tickets);
                 // dd('otro user');
     
             }

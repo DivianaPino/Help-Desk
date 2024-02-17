@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Rol;
+namespace App\Http\Controllers\TecnicoSop\MisTickets;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Ticket;
 
-class RolController extends Controller
+class MisTicketsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,9 @@ class RolController extends Controller
      */
     public function index()
     {
-        return view('myViews/roles/index');
+        dd('vista mis tickets');
+         
+
     }
 
     /**

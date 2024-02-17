@@ -24,7 +24,7 @@
                       <th>Creado</th>
                       <th>Respondido</th>
                       <th>Caducidad</th>
-                      <th>Opciones</th>
+                      <th>Acciones</th>
                    </tr>
                </thead>
 

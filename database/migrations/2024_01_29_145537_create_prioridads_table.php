@@ -16,6 +16,7 @@ class CreatePrioridadsTable extends Migration
         Schema::create('prioridads', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->integer('tiempo_resolucion')->unsigned();
             $table->timestamps();
         });
     }

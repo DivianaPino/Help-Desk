@@ -74,9 +74,9 @@ class User extends Authenticatable
 
      // Relacion uno a muchos:Inversa con area
 
-    public function area()
+    public function areas()
     {
-      return $this->belongsTo('App\Models\Area');
+        return $this->belongsToMany('App\Models\Area');
     }
 
 

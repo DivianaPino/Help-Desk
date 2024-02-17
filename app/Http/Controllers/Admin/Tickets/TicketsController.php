@@ -1,27 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Usuario;
+namespace App\Http\Controllers\Admin\Tickets;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Ticket;
 
-
-use Spatie\Permission\Models\Role;
-
-class UsuarioController extends Controller
+class TicketsController extends Controller
 {
-    
-    public function __construct(){
-
-        $this->middleware('can:usuarios.index')->only('index');
-        $this->middleware('can:usuarios.edit')->only('edit', 'update');
-
-    
-
-    }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -29,9 +15,9 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-
-        $usuarios=User::all();
-        return view('myViews.usuarios.index')->with('usuarios', $usuarios);
+        $tickets=Ticket::all();
+        return view('myViews.Admin.tickets.index')->with('tickets', $tickets);
+    
     }
 
     /**
@@ -41,7 +27,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('myViews.tickets.create');
     }
 
     /**
@@ -52,7 +38,7 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    
     }
 
     /**
@@ -63,7 +49,7 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -72,10 +58,9 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $usuario)
+    public function edit($id)
     {
-        $roles= Role::all();
-        return view('myViews.usuarios.edit')->with(['usuario'=>$usuario, 'roles'=>$roles]);
+        //
     }
 
     /**
@@ -85,12 +70,11 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $usuario)
+    public function update(Request $request, $id)
     {
-        $usuario->roles()->sync($request->roles);
-
-        return redirect()->route('usuarios.edit', $usuario)->with('info', 'La asignación de rol(es) se realizó correctamente');
+        //
     }
+
     /**
      * Remove the specified resource from storage.
      *

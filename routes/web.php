@@ -2,13 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 
+//General
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Rol\RolController;
-use App\Http\Controllers\Usuario\UsuarioController;
-use App\Http\Controllers\Tickets\TicketsController;
-use App\Http\Controllers\MisTickets\MisTicketsController;
-use App\Http\Controllers\ConsultarTicket\ConsultarTicketController;
+
+//Admin
+use App\Http\Controllers\Admin\Tickets\TicketsController;
+use App\Http\Controllers\Admin\Usuarios\UsuariosController;
+use App\Http\Controllers\Admin\Areas\AreasController;
+use App\Http\Controllers\Admin\Prioridades\PrioridadesController;
+
+//Técnico de soporte
+use App\Http\Controllers\TecnicoSop\MisTickets\MisTicketsController;
+
+//Usuario Estándar
+use App\Http\Controllers\usuarioEst\TicketsUsuario\TicketsUsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,28 +30,26 @@ use App\Http\Controllers\ConsultarTicket\ConsultarTicketController;
 */
 
 Route::get('/', [HomeController::class, 'index'] );
-Route::get('/dashboard', [DashboardController::class, 'index'] );
-
-//  Route::get('/usuarios', [UsuarioController::class, 'index'] )->name('usuarios');
-//  Route::get('/usuarios/{usuario}/edit', [UsuarioController::class, 'edit'] )->name('usuarios.edit');
-//  Route::put('/usuarios/{usuario}', [UsuarioController::class, 'update'] )->name('usuarios.update');
-
-
-
-Route::resources([
-    '/usuarios' => UsuarioController::class,
-    '/asignar_rol' => RolController::class,
-    '/Tickets' => TicketsController::class,
-    '/misTickets' => MisTicketsController::class,
-    '/consultarTickets' => ConsultarTicketController::class,
-]);
-
-
+Route::get('/dashboard', [DashboardController::class, 'index'] )->name('dashboard');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/consultarTickets', [ConsultarTicketController::class, 'index'] )->name('consultarTickets.index');
+
+    
+
+    Route::resource('/usuarios', UsuariosController::class);
+    Route::resource('/tickets', TicketsController::class);  
+    Route::resource('/tickets/usuario', TicketsUsuarioController::class);
+    Route::resource('/areas', AreasController::class);
+    Route::resource('/prioridades', PrioridadesController::class);
+
+
+    Route::get('/asignar_area/{id}', [UsuariosController::class, 'asignar_area'] )->name('asignar_area');
+    Route::put('/actualizar_area/{id}', [UsuariosController::class, 'actualizar_area'] );
+
+    Route::get('/area/{areaId}/usuarios', [AreasController::class, 'area_usuarios'] )->name('area_usuarios');
+
 });

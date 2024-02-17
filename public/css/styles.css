@@ -1,0 +1,23 @@
+
+.titulo{
+   text-align:center; 
+   font-size: 40px;
+}
+
+
+td{
+  text-align: center;
+  font-size: 18px;
+}
+
+.table td{
+    vertical-align:middle;
+} 
+
+/* alinear verticalmente */
+.linea{
+    display:inline;
+    color:#78909C;
+    font-size:25px; 
+    vertical-align:middle;
+}

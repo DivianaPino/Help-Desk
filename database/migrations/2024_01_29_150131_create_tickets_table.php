@@ -21,17 +21,16 @@ class CreateTicketsTable extends Migration
             $table->unsignedBigInteger('prioridad_id');
             $table->string('asunto');
             $table->text('mensaje');
-            $table->string('asignado_a');
+            $table->string('asignado_a')->nullable();
             $table->dateTime('fecha_inicio');
-            $table->dateTime('fecha_fin');
-            $table->dateTime('fecha_caducidad');
+            $table->dateTime('fecha_caducidad')->nullable();
             $table->timestamps();
 
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('clasificacion_id')->references('id')->on('clasificacions')->onDelete('cascade');
             $table->foreign('estado_id')->references('id')->on('estados')->onDelete('cascade');
-            $table->foreign('prioridad_id')->references('id')->on('prioridads')->onDelete('cascade');
+            $table->foreign('prioridad_id')->references('id')->on('prioridads')->onDelete('cascade');  
+            $table->foreign('clasificacion_id')->references('id')->on('clasificacions')->onDelete('cascade');
         });
     }
 

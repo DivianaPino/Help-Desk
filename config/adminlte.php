@@ -322,7 +322,7 @@ return [
         //     'label'       => 4,
         //     'label_color' => 'success',
         // ],
-        ['header' => 'CONFIGURACIÓN DE LA CUENTA'],
+        ['header' => 'CONFIGURACIÓN'],
         [
             'text' => 'Mi Perfil',
             'url'  => 'user/profile',
@@ -388,8 +388,22 @@ return [
                 ],
                 [
                     'text'        => 'Tickets',
-                    'url'         => '/Tickets',
+                    'url'         => '/tickets',
                     'icon'        => 'fas fa-fw fa-tags',
+                    'icon_color'  => 'info',
+                    // 'can'         => 'comments.index',
+                ],
+                [
+                    'text'        => 'Áreas',
+                    'url'         => '/areas',
+                    'icon'        => 'fas fa-fw fa-map-marker',
+                    'icon_color'  => 'info',
+                    // 'can'         => 'comments.index',
+                ],
+                [
+                    'text'        => 'Prioridades',
+                    'url'         => '/prioridades',
+                    'icon'        => 'fas fa-fw fa-bars',
                     'icon_color'  => 'info',
                     // 'can'         => 'comments.index',
                 ],
@@ -405,17 +419,17 @@ return [
 
                 [
                     'text'        => 'CREAR TICKET',
-                    'url'         => '/ticket_create',
+                    'url'         => 'tickets/usuario/create',
                     'icon'        => 'fas fa-fw fa-plus-circle',
                     'icon_color'  => 'info',
                      'can'         => 'consultarTickets.index',
                 ],
                 [
                     'text'        => 'CONSULTAR TICKETS',
-                    'url'         => '/consultarTickets',
+                    'url'         => '/tickets/usuario',
                     'icon'        => 'fas fa-fw  fa-search',
                     'icon_color'  => 'info',
-                    'can'         => 'consultarTickets.index',
+                    // 'can'         => 'consultarTickets.index',
                 ],
     
                 [

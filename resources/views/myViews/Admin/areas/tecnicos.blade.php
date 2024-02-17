@@ -1,15 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Gestión de usuarios')
+@section('title', 'Usuarios')
 
-@section('content_header')
-    <h1>Gestión de usuarios</h1>
-@stop
 
 @section('content')
 <div>
      <div class="card">
         <div class="card-body">
+        <h1>Técnicos que pertenecen al área: {{ $area->nombre }}</h1>
             <table id="tabla_usuarios" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
                <thead class="text-center bg-dark text-white">
                    <tr>
@@ -17,7 +15,7 @@
                       <th>Nombre</th>
                       <th>Email</th>
                       <th>Rol(es)</th>
-                      <th>Opciones</th>
+                      <th>Acciones</th>
                    </tr>
                </thead>
 
@@ -30,8 +28,10 @@
                              <td>{{$usuario->name}}</td>
                              <td>{{$usuario->email}}</td>
                              <td>{{$usuario->roles()->pluck('name')->implode(', ')}}</td>
-                             <td >
-                                 <a class="btn btn-info" href="{{route('usuarios.edit', $usuario)}}">Editar Rol</a>
+                             <td style="text-align: center;">
+                                 <a class="btn btn-info"  href="{{route('usuarios.edit', $usuario)}}">Editar rol</a>
+                                 <a class="btn btn-warning" href="{{url('asignar_area', $usuario)}}">Cambiar área</a>
+
                              </td> 
                          </tr>
 
@@ -89,3 +89,5 @@ $(document).ready(function() {
 });
 </script>
 @stop
+
+
