@@ -31,7 +31,12 @@ class Ticket extends Model
 
     public function respuesta() 
     {
-        return $this->hasOne('App\Models\Respuesta');
+        return $this->hasMany('App\Models\Respuesta');
+    }
+
+    public function masInformacions()
+    {
+      return $this->hasMany('App\Models\MasInformacion');
     }
 
     

@@ -10,7 +10,7 @@
 <div>    
      <div  class="card">
         <div  class="card-body col-md-8" style="margin:0 auto;" >
-            <table id="tabla_areas" class="table  table-striped table-bordered shadow-lg mt-4" style="font-size:15px; text-align: center;" >
+            <table id="tabla_prioridades" class="table  table-striped table-bordered shadow-lg mt-4" style="font-size:15px; text-align: center;" >
             <a href="prioridades/create" class="btn btn-primary mb-3" style="width:100px; font-size:20px;">Crear</a>
                @if(session('status'))
                 <p class="alert alert-success">{{ Session('status') }}</p>
@@ -60,11 +60,11 @@
 
 <script>
 $(document).ready(function() {
-    $('#tabla_areas').DataTable({
+    $('#tabla_prioridades').DataTable({
       //Opciones de paginación
         "lengthMenu": [
-            [5, 10, 50, -1],
-            [5, 10, 50, "All"]
+            [10, 30, 50, -1],
+            [10, 30, 50, "All"]
         ],
         "language":{
             "info": "_TOTAL_ registros", 

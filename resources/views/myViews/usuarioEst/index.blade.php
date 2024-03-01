@@ -75,8 +75,8 @@ $(document).ready(function() {
     $('#tabla_usuarios').DataTable({
       //Opciones de paginación
         "lengthMenu": [
-            [5, 10, 50, -1],
-            [5, 10, 50, "All"]
+            [10, 30, 50, -1],
+            [10, 30, 50, "All"]
         ],
         "language":{
             "info": "_TOTAL_ registros", 

@@ -31,7 +31,7 @@
                             <td>{{$area->nombre}}</td>
                             <td >
 
-                                    <a class="btn btn-info" href="{{url('/area/' . $area->id . '/usuarios')}}" >Ver técnicos</a>
+                                    <a class="btn btn-info" href="{{url('/area/' . $area->id . '/tecnicos')}}" >Ver técnicos</a>
 
                                     <p class="linea">|</p>
 
@@ -68,8 +68,8 @@ $(document).ready(function() {
     $('#tabla_areas').DataTable({
       //Opciones de paginación
         "lengthMenu": [
-            [5, 10, 50, -1],
-            [5, 10, 50, "All"]
+            [10, 30, 50, -1],
+            [10, 30, 50, "All"]
         ],
         "language":{
             "info": "_TOTAL_ registros", 
